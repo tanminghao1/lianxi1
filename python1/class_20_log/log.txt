@@ -1,0 +1,7 @@
+word
+hello
+word
+hello
+word
+python25-INFO-hello
+python25-WARNING-word

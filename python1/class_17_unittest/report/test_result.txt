@@ -1,0 +1,15 @@
+test_login_2_success (class_17_unittest.test_cases.test_login.TestLogin) ... ok
+test_login_3_erro (class_17_unittest.test_cases.test_login.TestLogin) ... FAIL
+
+======================================================================
+FAIL: test_login_3_erro (class_17_unittest.test_cases.test_login.TestLogin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\pythonProject\python1\class_17_unittest\test_cases\test_login.py", line 28, in test_login_3_erro
+    self.assertEqual(1,2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=1)

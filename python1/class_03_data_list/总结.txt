@@ -1,0 +1,15 @@
+# 字符串的函数
+len(),join(),split(),find(),index(),
+replace(),strip(),isdigit(),count(),
+upper()
+# 列表
+# 添加，删除，修改，其他
+# insert,append(),extend()
+# pop,remove(),clear()
+# 修改 mylist[索引]= 新的值
+# 列表的操作
+sort(),reverse(),index()
+
+# 元组，字典
+# mylist.append() 方法
+# len() 函数
