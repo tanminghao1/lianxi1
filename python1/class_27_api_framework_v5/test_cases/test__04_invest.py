@@ -120,3 +120,6 @@ class TestInvest(unittest.TestCase):
             after_money = after_user['leave_amount']
             # self.new_db.close()
             self.assertEqual(beformoney - money,after_money)
+
+
+# 测试git
