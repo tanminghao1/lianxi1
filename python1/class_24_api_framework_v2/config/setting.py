@@ -20,6 +20,7 @@ class Config:
     log_path = os.path.join(root_path,'log')
     if not os.path.exists(log_path):
         os.mkdir(log_path)
+    log_file = os.path.join(log_path,"log24.txt")
 
 
 class DevConfig(Config):

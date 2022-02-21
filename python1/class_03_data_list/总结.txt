@@ -5,11 +5,11 @@ upper()
 # 列表
 # 添加，删除，修改，其他
 # insert,append(),extend()
-# pop,remove(),clear()
+# pop,remove(),clear(),index()
 # 修改 mylist[索引]= 新的值
 # 列表的操作
-sort(),reverse(),index()
-
+.sort(),reverse(),index()
+sorted(a,reverse=True)
 # 元组，字典
 # mylist.append() 方法
 # len() 函数

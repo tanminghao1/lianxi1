@@ -32,12 +32,12 @@ readme 文件。
 4.业务逻辑层（request_handler,excel_handler）通用的logger,访问数据库
 5.配置文件（和项目是相关联的，项目地址，数据库地址，logger级别）
 6.测试报告（输出）
+7.中间业务层（为了方便测试逻辑层使用写的一些方法，用例关联，业务数据生成等）
 
 动态数据：
 注册功能中正确的手机号码不能提前知道，需要通过程序去动态生成
 
-
-
+'http://test.lemonban.com/futureloan/mvc/api/member/login'
 接口base_url: http://120,78.128.25:8766/futuureloan
 mysql数据库连接信息：
 主机：120.78.128.25

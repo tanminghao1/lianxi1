@@ -2,6 +2,7 @@
 import requests
 class RequestHandler:
     def __init__(self):
+        # 初始化一个会话对象
         self.session = requests.session()
 
     def visit(self,url,method,params=None,data=None,json=None,**kwargs):
@@ -22,22 +23,22 @@ class RequestHandler:
         except ValueError:
             print("not json")
 
-test_data =[ {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
-              "method":"post",
-              "headers":{"name":"yuz"},
-              "data":{"mobilephone":"18111111111","pwd":"123456"},
-              "expected":"hello word"},
-
-             {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
-              "method":"post",
-              "headers":{"name":"yuz"},
-              "data":{"mobilephone":"181111","pwd":"123"},
-              "expected":"hello word"
-             }
-             ]
-data = test_data[0]
-res = RequestHandler().visit(url=data['url'],
-                           method=data['method'],
-                           json=data['data'],
-                           headers=data['headers'])
-print(res)
+# test_data =[ {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
+#               "method":"post",
+#               "headers":{"name":"yuz"},
+#               "data":{"mobilephone":"18111111111","pwd":"123456"},
+#               "expected":"hello word"},
+#
+#              {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
+#               "method":"post",
+#               "headers":{"name":"yuz"},
+#               "data":{"mobilephone":"181111","pwd":"123"},
+#               "expected":"hello word"
+#              }
+#              ]
+# data = test_data[0]
+# res = RequestHandler().visit(url=data['url'],
+#                            method=data['method'],
+#                            json=data['data'],
+#                            headers=data['headers'])
+# print(res)

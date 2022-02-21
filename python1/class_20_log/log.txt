@@ -5,3 +5,7 @@ hello
 word
 python25-INFO-hello
 python25-WARNING-word
+
+
+2022-02-16 18:32:47,134-d1_logging.py-51-python25-WARNING-word
+2022-02-16 18:34:13,444-d1_logging.py-51-python25-WARNING-word

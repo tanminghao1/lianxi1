@@ -49,7 +49,7 @@ class ExcelHandler():
                 # print(cell.value)
                 row_data.append(cell.value)
             # 转成字典，和header进行zip方法打包，会是zip对象，一一对应后转化为字典
-                data_dict = dict(zip(self.header(sheet_name),row_data))
+            data_dict = dict(zip(self.header(sheet_name),row_data))
             # 每一行的数据存储到列表data中
             data.append(data_dict)
         return data
@@ -88,8 +88,9 @@ class ExcelHandler():
 
 if __name__ == '__main__':
     excel = ExcelHandler(r"C:\Users\86176\Desktop\cases.xlsx")
-    data = excel.write('Sheet1',1,1,'username')
+    # data = excel.write('Sheet1',1,1,'username')
+    data = excel.read('Sheet1')
     # excel.write(r"C:\Users\86176\Desktop\cases.xlsx",'Sheet1',1,1,'3333')
-    # print(data)
+    print(data)
 
     # zip ['title','gender'] [1,2]，将列表打包成字典

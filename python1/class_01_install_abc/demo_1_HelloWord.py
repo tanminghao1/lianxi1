@@ -4,8 +4,8 @@ print("HelloWord")
 print('hello')
 print('word')
 # input:输入，让用户输入信息
-dalao_name = input("请输入大佬的名字")
-dalao_money = input("请输入大佬的年薪")
+# dalao_name = input("请输入大佬的名字")
+# dalao_money = input("请输入大佬的年薪")
 
 # 变量 x=3,y=5,x+y
 # 变量的作用：存储数据
@@ -32,3 +32,9 @@ xiaorongAge = 18
 
 
 
+for i in range(5):
+    i+=1
+    print("-----")
+    if i==3:
+        continue
+    print(i)

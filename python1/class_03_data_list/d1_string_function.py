@@ -48,6 +48,7 @@ gunianggg = '男拼命姑娘儿'
 print(gunianggg.lstrip('男'))
 print(gunianggg.rstrip('儿').lstrip('男'))
 print(gunianggg.strip('拼姑'))
+print(gunianggg)
 # 判断字符串里是否是一个正整数 .isdigit
 a = '-2345'
 print(a.isdigit())

@@ -20,13 +20,19 @@ class Config:
     log_path = os.path.join(root_path,'log')
     if not os.path.exists(log_path):
         os.mkdir(log_path)
+    logger_file = os.path.join(log_path,'python25.txt')
+    logger_name = 'python27'
 
 
-class DevConfig(Config):
-    # 项目的域名
+
+    # 域名
     host = 'http://test.lemonban.com/futureloan/mvc/api'
 
+# class DevConfig(Config):
+#     # 项目的域名
+#     host = 'http://test.lemonban.com/futureloan/mvc/api'
 
 
 
-config = DevConfig()
+
+config = Config()

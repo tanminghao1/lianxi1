@@ -15,7 +15,7 @@ import os.path
 # pwd 显示当前文件的工作路径，相对路径
 # 你在哪里运行的python指令，这个路径就是当前文件路径
 # 每次会变，取决于你在哪里运行的python,相对路径
-print(os.getcwd())
+# print(os.getcwd())
 
 # 如果想每次得到的一样，要用绝对路径:abspath()/realpath()
 print(os.path.abspath(__file__))
@@ -31,7 +31,6 @@ print(os.path.join(a,'yuze.txt'))
 # 创建文件一次建一级
 data_path = os.path.join(a,'data')
 # os.mkdir(data_path)
-
 # 是否是一个文件夹
 print(os.path.isdir(data_path))
 print(os.path.isdir(a))

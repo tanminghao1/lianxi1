@@ -1,5 +1,6 @@
 import re
 
+import ddt
 from jsonpath import jsonpath
 
 from common.db_handler import DBHandler
@@ -8,6 +9,7 @@ from config.setting import config
 from middleware.yaml_handler import yaml_data
 
 # 封装一个登录操作
+
 def login():
     """登录返回的是token和member_id
     1.从登录的excel当中读取接口数据
@@ -16,7 +18,7 @@ def login():
     req = RequestHandler()
     res = req.visit(config.host + '/member/login',
                     'post',
-                    json=yaml_data['user'],
+                    json=yaml_data["user"],
                     headers={"X-Lemonban-Media-Type":"lemonban.v2"})
     return res
 
@@ -35,7 +37,12 @@ class Context:
         临时变量保存到Context中
         return 返回load表当中的id值
         """
-        db = DBHandler()
+        db = DBHandler(host=yaml_data['database']['host'],
+                  port=yaml_data['database']['port'],
+                  user=yaml_data['database']['user'],
+                  password=yaml_data['database']['password'],
+                  database=yaml_data['database']['database'],
+                  charset=yaml_data['database']['charset'])
         loan = db.query("select * from loan where status = 2 limit 10")
         # 关闭游标
         db.close()
@@ -54,6 +61,7 @@ class Context:
         t = " ".join([token_type, t])
         return t
     @property
+    # 要动态获取不同用户的话写成方法，property不能传参数
     def member_id(self):
         data = login()
         m_id = jsonpath(data,'$..id')[0]
@@ -83,7 +91,7 @@ def replace_label(target):
     while re.findall(re_pattern,target):
         # 如果能够匹配,再通过search匹配一次得到要替换的key，进行动态替换
         key = re.search(re_pattern,target).group(1)
-        # 使用getattr动态获取属性值，转换为字符串类型替换
+        # 使用getattr动态设置并获取属性值，转换为字符串类型替换
         target = re.sub(re_pattern,str(getattr(Context(),key)),target,1)
     return target
 

@@ -128,7 +128,7 @@ print("使\n用range()创建数字列表：",numbers_1)
 numbers_2 = list(range(0,10,2))
 print("\n取10以内间隔为2的值创建列表：",numbers_2)
 
-# 使用函数range()几乎能创建任何需要的数集
+# 使用函数range()几乎能创建任何需要的
 values = []
 for value in range(0,5):
     values.append(value)

@@ -1,5 +1,7 @@
 import json
 import unittest
+
+import logger
 import yaml
 
 from common.db_handler import DBHandler
@@ -27,13 +29,17 @@ class TestRegister(unittest.TestCase):
 
     def setUp(self) -> None:
         self.req = RequestHandler()
-        self.db =DBHandler(host=yaml_data['database']['host'],
+        try:
+            self.db =DBHandler(host=yaml_data['database']['host'],
                   port=yaml_data['database']['port'],
                   user=yaml_data['database']['user'],
                   password=yaml_data['database']['password'],
                   database=yaml_data['database']['database'],
                   charset=yaml_data['database']['charset']
                   )
+        except :
+            self.logger.error("连接数据库失败:")
+
     def tearDown(self) -> None:
         self.req.close_session()
         self.db.close()

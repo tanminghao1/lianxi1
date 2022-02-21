@@ -23,14 +23,14 @@ case_path = os.path.join(dir_path,'test_cases')
 # suite = testloader.discover(case_path)
 # 运行指定模块的用例
 # suite = testloader.loadTestsFromModule(test_assert)
-# # 运行多个模块的用例
+# 运行多个模块的用例
 # suite2 = testloader.loadTestsFromModule(test_login)
 # 将两个suite添加到同一个套件里
 # suite_total = unittest.TestSuite()
 # suite_total.addTests(suite)
 # suite_total.addTests(suite2)
-
 # suite = testloader.loadTestsFromName()
+
 # 添加指定的测试类
 suite = testloader.loadTestsFromTestCase(TestLogin)
 suite2 = testloader.loadTestsFromTestCase(TestRegister)

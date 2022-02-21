@@ -14,7 +14,7 @@ import requests
 # 登录接口
 # token放在什么地方
 # token可以放到请求体
-url = 'http://120.78.128.25:8766/futureloan/member/login'
+url = 'http://test.lemonban.com/futureloan/mvc/api/member/login'
 headers = {"X-Lemonban-Media-Type":"lemonban.v2"}
 data = {"mobile_phone":"18111111111","pwd":"12345678"}
 res = requests.post(url,headers=headers,json=data)

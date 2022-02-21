@@ -10,7 +10,7 @@ from libs import ddt
 from common.excel_handler import ExcelHandler
 from common.request_handler import RequestHandler
 from config.setting import config
-from middleware.help import Context
+from middleware.help import Context, replace_label
 from middleware.yaml_handler import yaml_data
 # yaml读取,直接调用yaml封装后初始化的对象,不需要去初始化
 # f = open(config.yaml_config_path,encoding='utf-8')
@@ -78,7 +78,10 @@ class TestInvest(unittest.TestCase):
         # # 错误的用户名，给正确的member_id+1得到一个错误的id
         # if "#wrong_member_id#" in test_data['json']:
         #     test_data['json'] = test_data['json'].replace('#wrong_member_id',str(member_id+1))
+
         # 需要多个条件语句进行替换时，可以使用正则表达式,一次性完成替换
+        # 调用封装的正则匹配替换
+        test_data = replace_label(str(test_data))
 
         # 读取excel当中的headers，得到字典
         headers = json.loads(test_data['headers'])
@@ -120,3 +123,6 @@ class TestInvest(unittest.TestCase):
             after_money = after_user['leave_amount']
             # self.new_db.close()
             self.assertEqual(beformoney - money,after_money)
+
+
+# 测试git
