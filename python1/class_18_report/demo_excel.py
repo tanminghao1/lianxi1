@@ -84,3 +84,14 @@ for row in total_data:
 wb.save(r'C:\Users\86176\Desktop\cases.xlsx')
 # 关闭
 wb.close()
+
+
+
+wb = openpyxl.load_workbook(r'C:\Users\86176\Desktop\cases.xlsx')
+sheet = wb['Sheet1']
+row1 = sheet[1]
+
+col1 = sheet['A']
+cell1 =sheet.cell(1,1)
+print(cell1.value)
+print(row1[0])

@@ -14,9 +14,14 @@ class TestLogin(unittest.TestCase):
         # print(res)
         # 加try except,抛出异常使程序执行下去
         try:
-            self.assertEqual(1,3-3)
+            self.assertEqual(1,2)
         except AssertionError as e:
             print("断言失败",e)
+            # 断言失败后要抛出异常
+            raise e
 
 # 写完代码要空一行
-# 如何运行：右击，要出现unittest
+# 如何运行：需要unitest.main()方法，右击出现unittest,如果未出现 手动添加
+if __name__ == '__main__':
+    unittest.main()
+

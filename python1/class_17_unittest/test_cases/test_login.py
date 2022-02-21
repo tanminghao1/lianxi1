@@ -4,7 +4,7 @@
 # 右击出现unittest，没有出现需要配置
 # 运行2，如何使用python去运行
 import unittest
-# from class_17_unittest.d3_unittest import visitor
+from class_17_unittest.d3_unittest import visitor
 # url = 'http://test.lemonban.com/futureloan/mvc/api/member/login'
 # data = {"mobilephone":"18111111111","pwd":"123456"}
 # headers = {"name":"yuz"}
@@ -22,7 +22,7 @@ class TestLogin(unittest.TestCase):
             print("断言失败",e)
             # 因为异常被捕获了，即使断言失败也不会抛出异常
             # 如果你想断言失败，要抛出异常，通过raise
-            raise AssertionError
+            raise e
     def test_login_3_erro(self):
         print("用例2")
         self.assertEqual(1,2)

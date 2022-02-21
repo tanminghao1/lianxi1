@@ -25,3 +25,4 @@ url = "http://api.github.com"
 data = {"username":"xianren","pwd":"123456"}
 res = requests.get(url,params=data,headers=headers)
 
+print(res)

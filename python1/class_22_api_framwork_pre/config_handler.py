@@ -35,4 +35,6 @@ if __name__ == '__main__':
 
     #先读取yaml数据
     data= read_yaml('D:\pythonProject\python1\class_21_logger封装\python25.yaml')
-    write_yaml('python_26.yaml',data)
+    print(data['logger']['name'])
+    # print(data)
+    # write_yaml('python_26.yaml',data)

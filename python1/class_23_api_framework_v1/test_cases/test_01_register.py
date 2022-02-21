@@ -4,26 +4,30 @@ import yaml
 
 from common.db_handler import DBHandler
 from common.helper import generate_mobile
-from common.logger_handler import LoggerHandler
+from common.logger_handler import logger
+from common.yaml_handler import yaml_read
 from libs import ddt
 from common.excel_handler import ExcelHandler
 from common.request_handler import RequestHandler
 from config.setting import config
 
-# yaml读取
-f = open(config.yaml_config_path,encoding='utf-8')
-yaml_data = yaml.load(f,Loader=yaml.FullLoader)
 
+# yaml读取
+# f = open(config.yaml_config_path,encoding='utf-8')
+# yaml_data = yaml.load(f,Loader=yaml.FullLoader)
+yaml_data = yaml_read(config.yaml_config_path)
 """注册相关用例"""
 @ddt.ddt
 class TestRegister(unittest.TestCase):
     # 读取数据
     excel_handler = ExcelHandler(config.data_path)
     data = excel_handler.read('register')
-    logger = LoggerHandler(name=yaml_data['logger']['name'],
-                           level=yaml_data['logger']['level'],
-                           file=yaml_data['logger']['file']
-                           )
+    # logger = LoggerHandler(name=yaml_data['logger']['name'],
+    #                        level=yaml_data['logger']['level'],
+    #                        file=yaml_data['logger']['file']
+    #                        )
+    # loggerHandler中实例化了一个logger，直接导入logger对象使用
+
 
     def setUp(self) -> None:
         self.req = RequestHandler()
@@ -74,16 +78,18 @@ class TestRegister(unittest.TestCase):
         # 获取预期结果
         # 断言
         try:
-            self.assertEqual(json.loads(test_data['excepted'])['code'],res['status'])
+            self.assertEqual(json.loads(test_data['excepted'])["code"],res['status'])
             # 测试用例通过时，写入excel数据
             self.excel_handler.write(config.data_path,
                                      'register',
                                      test_data['case_id']+1,
                                      9,
                                      '测试通过')
+            print(res)
         except AssertionError as e :
             # 记录logger
-            self.logger.error(f"测试用例失败：{e}")
+            logger.error(f"测试用例失败：{e}")
+            # self.logger.error(f"测试用例失败：{e}")
             # 测试用例失败时写入excel结果
             self.excel_handler.write(config.data_path,
                                      'register',

@@ -4,18 +4,18 @@
 属性：特征、名词
 方法：行为、动作、动词
 方法和方法之间的相互调用
-带有self参数的方法叫做实例方法
+带有self参数的方法叫做实例方法 实例属性
 self可以修改
 
 没有self的方法
 1.静态方法
 就是表示刚刚好放在类下面的普通函数
 只是为了方便管理我们的代码
-静态方法的调用  self.方法  类.方法
+静态方法的调用  self.方法  类.方法,不能访问实例属性，可供其他实例方法调用
 
 类方法：
 cls代表类本身
-类方法的调用：类.方法名    实例.方法名
+类方法的调用：类.方法名    实例.方法名，不能访问实例属性，可以访问类属性，绕过了初始化init函数
 """
 def eat(food):
     return "大佬喜欢吃{}".format(food)
@@ -28,10 +28,12 @@ class Dalao:
     @staticmethod
     def eat(food):
         print("大佬喜欢")
+
         return "大佬喜欢吃{}".format(food)
     def offer(self,money,food):
         print("恭喜{}拿到{}的offer".format(self.name,money))
         food = self.eat(food)
+
     @classmethod
     def code(cls):
         print("我喜欢的编程语言是{}".format(cls.favor))

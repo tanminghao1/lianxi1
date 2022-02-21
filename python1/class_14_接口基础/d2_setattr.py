@@ -28,5 +28,6 @@ setattr(phone,"food","辣条")
 print(phone.food)
 
 setattr(phone,"brand","oppo")
+
 # 有时候我们提前不知道属性名称是什么，是从别的地方拿过来的
 #

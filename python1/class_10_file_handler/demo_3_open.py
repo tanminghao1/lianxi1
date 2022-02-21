@@ -29,12 +29,12 @@ mode:
 """
 import os
 # 获取绝对路径下的文件夹路径及名称
-# dir_name = os.path.dirname(os.path.abspath(__file__))
-# # 拼接一个路径
-# xianren = os.path.join(dir_name,'xianren.txt')
-# f = open(xianren,encoding='utf-8')
-# print(f.read())
-# f.close()
+dir_name = os.path.dirname(os.path.abspath(__file__))
+# 拼接一个路径
+xianren = os.path.join(dir_name,'xianren.txt')
+f = open(xianren,encoding='utf-8')
+print(f.read())
+f.close()
 
 # 'hello'.encode()
 # b'hello'.decode()
@@ -50,9 +50,9 @@ import os
 # f.close()
 
 # 'b',binary,二进制，图片，视频
-dir_name = os.path.dirname(os.path.abspath(__file__))
-png_pic = os.path.join(dir_name,'1.jpg')
-print(png_pic)
-f = open(png_pic,mode='rb')
-print(f.read())
-f.close()
+# dir_name = os.path.dirname(os.path.abspath(__file__))
+# png_pic = os.path.join(dir_name,'1.jpg')
+# print(png_pic)
+# f = open(png_pic,mode='rb')
+# print(f.read())
+# f.close()

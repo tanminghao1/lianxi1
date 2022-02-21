@@ -22,13 +22,15 @@ logger.setLevel("DEBUG")
 # handler = logging.StreamHandler()
 
 # 3.初始化日志处理器，放到一个file文件当中,初始化笔，怎么输出日志
-# 路径默认在当前文件夹下，可写绝对路径
+# 路径默认在当前文件夹下，可写绝对路径  logging.FileHandler("log.txt")  文件-日志处理器
 handler = logging.FileHandler("log.txt")
-handler.setLevel("WARNING")
-
-# 4.设置不同日志处理器来收集不同级别日志
-console_handler = logging.StreamHandler()
 handler.setLevel("DEBUG")
+
+# 4.设置不同日志处理器来收集不同级别日志,logging.StreamHandler() 控制台-日志处理器
+console_handler = logging.StreamHandler()
+console_handler.setLevel("DEBUG")
+
+
 
 # 5.收集器和处理器绑定起来，添加handler
 logger.addHandler(handler)
@@ -39,9 +41,12 @@ logger.addHandler(console_handler)
 # %(lineno)d 行号
 # %(asctime)s 时间
 #
-fmt = logging.Formatter('%(filename)s-%(lineno)d-%(name)s-%(levelname)s-%(message)s')
-
+fmt = logging.Formatter('%(asctime)s-%(filename)s-%(lineno)d-%(name)s-%(levelname)s-%(message)s')
 # 7.将格式添加到handler
 handler.setFormatter(fmt)
+console_handler.setFormatter(fmt)
+
+
 logger.info("hello")
 logger.warning("word")
+logger.debug("debb")

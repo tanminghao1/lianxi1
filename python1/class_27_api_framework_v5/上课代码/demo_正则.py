@@ -23,6 +23,7 @@ discover
 
 # 匹配特定的字符串 “abc”
 import re
+from common import excel_handler
 # re_pattern = r'abc'
 # 在带有 ‘r’ 前缀的字符串字面值中，反斜杠不必做任何特殊处理。
 # 从“wofowpqfowfjowefjiwoefabcowof” 这个字符串当中匹配是否有 re_pattern
@@ -99,6 +100,7 @@ import re
 # re_pattern = r'\d$'
 # res = re.findall(re_pattern,"wofo11wp17673054644qfowfj22owefji33woefabcowof3")
 # print(res)
+from config.setting import config
 
 mystr = '{"member_id":"#member_id#","loan_id":#loan_id#,"username":#username#}'
 # 匹配规则
@@ -135,4 +137,8 @@ def replace_label(target):
 
 
 if __name__ == '__main__':
+    excel = excel_handler.ExcelHandler(config.data_path)
+    data = excel.read("invest")
+    print(data[0])
+    print(replace_label(str(data[0])))
     print(replace_label(mystr))

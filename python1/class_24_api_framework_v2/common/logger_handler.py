@@ -1,5 +1,5 @@
 import logging
-
+from common import yaml_handler
 from config.setting import config
 
 class LoggerHandler(logging.Logger):
@@ -34,9 +34,9 @@ class LoggerHandler(logging.Logger):
         # 处理器添加到收集器中
         self.addHandler(stream_handler)
         # self.logger = logger
-
+yaml_data= yaml_handler.yaml_read(config.yaml_config_path)
 # 初始化一个logger供其他模块调用
-# logger = LoggerHandler(config.logger_name,file=config.logger_file)
+logger = LoggerHandler(yaml_data["logger"]["name"],file=config.log_file)
 
 # if __name__ == '__main__':
 #     logger = LoggerHandler()

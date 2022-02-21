@@ -6,10 +6,10 @@
 # 如何操作cookie
 import requests
 # 登录
-login_url = 'http://test.lemonban.com/futureloan/mvc/api/member/login'
-data = {"mobilephone":"18111111111","pwd":"123456"}
-res = requests.get(login_url,data)
-print(res.json())
+# login_url = 'http://test.lemonban.com/futureloan/mvc/api/member/login'
+# data = {"mobilephone":"18111111111","pwd":"123456"}
+# res = requests.get(login_url,data)
+# print(res.json())
 
 # 获取cookie,如果通过浏览器会自动带上cookie
 # cookies =res.cookies
@@ -22,7 +22,8 @@ print(res.json())
 # session,直接使用session，会自动带上cookie
 # 1.登录
 # se = requests.Session()
-session = requests.sessions.session()
+# 初始化一个session()，发起一个会话对象
+session = requests.session()
 login_url = 'http://test.lemonban.com/futureloan/mvc/api/member/login'
 data = {"mobilephone":"18111111111","pwd":"123456"}
 res = session.post(login_url,data)
@@ -33,8 +34,15 @@ recharge_url = 'http://test.lemonban.com/futureloan/mvc/api/member/recharge'
 recharge_data = {"mobilephone":"18111111111","amount":"1000"}
 res = session.post(recharge_url,data=recharge_data)
 print(res.text)
-
 # 再次充值，初始化了另外的session(重新打开会话，需要重新登录)
 # another_session = requests.sessions.session()
 # res = another_session.post(recharge_url,data=recharge_data)
 # print(res.text)
+
+# 注册
+# register_url = 'http://test.lemonban.com/futureloan/mvc/api/member/register'
+# register_data = {"mobilephone":"18511111221","pwd":"123456"}
+# res = session.request('post',register_url,json=register_data)
+# print(res.json())
+
+

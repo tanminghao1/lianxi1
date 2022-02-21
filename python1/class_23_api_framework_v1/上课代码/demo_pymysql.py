@@ -17,6 +17,13 @@ import pymysql
 # TODO:utf-8 要写成utf8
 from pymysql.cursors import DictCursor
 
+host='120.78.128.25'
+port=3306
+user='future'
+password='123456'
+charset='utf8'
+database='futureloan'
+
 conn = pymysql.connect(host='120.78.128.25',port=3306,
                        user='future',password='123456',
                        charset='utf8',database='futureloan',
@@ -46,5 +53,63 @@ print(all2)
 # 使用后关闭游标和连接
 cursor.close()
 cursor_other.close()
-
 conn.close()
+
+
+conn2 = pymysql.connect(host=host,port=port,
+                        user=user,password=password,
+                        database=database,
+                        charset='utf8',
+                        cursorclass=DictCursor
+                        )
+cursor = conn2.cursor()
+cursor.execute("select * from member limit2 ")
+cursor.fetchone()
+cursor.close()
+conn2.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 1.建立连接
+conn3 = pymysql.connect(host=host,port=port,
+                        user=user,password=password,
+                        charset='utf8',
+                        database=database,
+                        cursorclass=DictCursor)
+# 2.初始化游标
+cursor3 = conn3.cursor()
+# 3.执行查询语句
+cursor3.execute("select * from member limit2;")
+# 4.获取查询数据
+cursor3.fetchall()
+# 5.关闭游标和连接
+cursor3.close()
+cursor3.close()
+
+
+conn4 = pymysql.connect(host=host,port=port,
+                        user=user,password=password,
+                        database=database,
+                        cursorclass=DictCursor,
+                        charset="utf8")
+cursor4 = conn4.cursor()
+cursor4.execute("select * from member limit2;")
+cursor4.fetchall()
+cursor4.close()
+conn4.close()
+
+

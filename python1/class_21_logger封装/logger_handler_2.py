@@ -10,7 +10,7 @@ class LoggerHandler(logging.Logger):
                  name='root',
                  level='DEBUG',
                  file=None,
-                 format='%(filename)s-%(lineno)d-%(name)s-%(levelname)s-%(message)s'):
+                 format='%(asctime)s-%(filename)s-%(lineno)d-%(name)s-%(levelname)s-%(message)s'):
         # 初始化日志收集器，getlogger(name)已经进行了实例化
         # logger = logging.getLogger(name)
         # 直接继承父类的logger实例，返回的实例就是self了
@@ -39,8 +39,9 @@ class LoggerHandler(logging.Logger):
         # self.logger = logger
 
 # 初始化一个logger供其他模块调用
-logger = LoggerHandler(config.logger_name,file=config.logger_file)
+logger = LoggerHandler(config.LoggerConfig.logger_name,file=config.LoggerConfig.logger_file)
 
 if __name__ == '__main__':
-    logger = LoggerHandler()
-    logger.debug("hello word")
+    # logger = LoggerHandler()
+    # logger.debug("hello word")
+    logger.info("aaa")

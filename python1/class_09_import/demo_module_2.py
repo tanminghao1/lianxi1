@@ -9,10 +9,10 @@ __main__:表示运行python文件的模块名
 """
 from class_09_import import module_1
 print(__file__)
-print("主程序",__name__)
-print(module_1.randint())
-if __name__ == '__main__':
-    print("hello word")
+# print("主程序",__name__)
+# print(module_1.randint())
+# if __name__ == '__main__':
+#     print("hello word")
 
 # 当.py文件被作为脚本或者入口执行的时候，if下面的代码会执行
 # 如果.py文件被导入其他模块调用时，if下面的代码不会被执行

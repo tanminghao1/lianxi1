@@ -1,4 +1,5 @@
 # 封装requests
+import urllib.request
 import requests
 class RequestHandler:
     def __init__(self):
@@ -17,29 +18,34 @@ class RequestHandler:
         # else:
         # request方法可以处理请求方式，只要传method就可以
         res = self.session.request(method,url,params=params,data=data,json=json,**kwargs)
+
         try:
+            req = urllib.request.Request(url, data=json)
+            print("请求参数为：",req.data)
             return res.json()
+
         except ValueError:
             print("not json")
+
     def close_session(self):
         self.session.close()
 
-test_data =[ {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
-              "method":"post",
-              "headers":{"name":"yuz"},
-              "data":{"mobilephone":"18111111111","pwd":"123456"},
-              "expected":"hello word"},
-
-             {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
-              "method":"post",
-              "headers":{"name":"yuz"},
-              "data":{"mobilephone":"181111","pwd":"123"},
-              "expected":"hello word"
-             }
-             ]
-data = test_data[0]
-res = RequestHandler().visit(url=data['url'],
-                           method=data['method'],
-                           json=data['data'],
-                           headers=data['headers'])
-print("打印实际返回结果：",res)
+# test_data =[ {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
+#               "method":"post",
+#               "headers":{"name":"yuz"},
+#               "data":{"mobilephone":"18111111111","pwd":"123456"},
+#               "expected":"hello word"},
+#
+#              {"url":"http://test.lemonban.com/futureloan/mvc/api/member/login",
+#               "method":"post",
+#               "headers":{"name":"yuz"},
+#               "data":{"mobilephone":"181111","pwd":"123"},
+#               "expected":"hello word"
+#              }
+#              ]
+# data = test_data[0]
+# res = RequestHandler().visit(url=data['url'],
+#                            method=data['method'],
+#                            json=data['data'],
+#                            headers=data['headers'])
+# print("打印实际返回结果：",res)

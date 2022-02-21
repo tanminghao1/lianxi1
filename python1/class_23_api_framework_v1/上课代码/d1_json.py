@@ -13,6 +13,6 @@ data_dict = json.loads(data)
 print(data_dict)
 
 # 字典转化为json
-data_dict = {'name':'yuz','pwd':None}
+data_dict = {"name":"yuz","pwd":None}
 json_data = json.dumps(data_dict)
 print(json_data)

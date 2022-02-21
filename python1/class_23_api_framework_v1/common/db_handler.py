@@ -2,6 +2,7 @@ import pymysql
 import yaml
 from pymysql.cursors import DictCursor
 
+from common.yaml_handler import yaml_read
 from config.setting import config
 
 
@@ -31,8 +32,9 @@ class DBHandler:
 
 if __name__ == '__main__':
     # 参数读取配置文件
-    f = open(config.yaml_config_path, encoding='utf-8')
-    yaml_data = yaml.load(f, Loader=yaml.FullLoader)
+    # f = open(config.yaml_config_path, encoding='utf-8')
+    # yaml_data = yaml.load(f, Loader=yaml.FullLoader)
+    yaml_data = yaml_read(config.yaml_config_path,encoding="utf-8")
     db =DBHandler(host=yaml_data['database']['host'],
                   port=yaml_data['database']['port'],
                   user=yaml_data['database']['user'],

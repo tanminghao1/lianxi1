@@ -33,7 +33,10 @@ class TestLogin(unittest.TestCase):
     def test_login_1_success(self):
         print("用例1")
         res = visitor(self.data['url'],self.data['data'],self.data['headers'])
-        self.assertEqual(self.data['excepted'],res)
+        try:
+            self.assertEqual(self.data['excepted'],res)
+        except AssertionError as a:
+            raise a
 
     def test_login_2_erro(self):
         print("用例2")
